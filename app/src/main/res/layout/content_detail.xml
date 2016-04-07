@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.zhu.todolist.DetailActivity"
+    tools:showIn="@layout/activity_detail">
+
+    <TextView
+        android:id="@+id/hintTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题"/>
+
+    <EditText
+        android:inputType="none"
+        android:id="@+id/detail_title"
+        android:textSize="16sp"
+        android:layout_below="@id/hintTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/hintContent"
+        android:layout_below="@id/detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内容"/>
+
+    <EditText
+        android:inputType="none"
+        android:id="@+id/detail_content"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hintContent" />
+    <TextView
+        android:id="@+id/hintCreateDate"
+        android:layout_below="@id/detail_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="创建日期"/>
+    <EditText
+        android:inputType="date"
+        android:id="@+id/detail_createDate"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hintCreateDate" />
+    <TextView
+        android:id="@+id/hintDeadline"
+        android:layout_below="@id/detail_createDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="截止日期"/>
+    <EditText
+        android:inputType="none"
+        android:id="@+id/detail_deadline"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hintDeadline" />
+
+    <TextView
+        android:id="@+id/hintPriority"
+        android:layout_below="@id/detail_deadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="优先级"/>
+
+    <EditText
+        android:inputType="none"
+        android:id="@+id/detail_priority"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hintPriority" />
+
+    <TextView
+        android:id="@+id/hintIsFinished"
+        android:layout_below="@id/detail_priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="完成状况"/>
+    <EditText
+        android:inputType="none"
+        android:id="@+id/detail_isFinished"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hintIsFinished" />
+
+</RelativeLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="4dip"
+    android:paddingLeft="12dip"
+    android:paddingRight="12dip" >
+
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dp"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/hint1"
+        android:text="创建于："
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleText"/>
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/hint1"
+        android:layout_below="@id/titleText"
+        android:maxLines="2"
+        android:paddingRight="20dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/hint2"
+        android:text="截止于："
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hint1"/>
+    <TextView
+        android:id="@+id/deadlineText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/hint2"
+        android:layout_below="@id/hint1"
+        android:maxLines="2"
+        android:paddingRight="20dp"
+        android:textColor="#000000" />
+    <TextView
+        android:id="@+id/priorityText"
+        android:layout_alignTop="@id/hint1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/hint3"
+        android:text="优先级："
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/priorityText"
+        android:layout_alignTop="@id/priorityText"/>
+
+    <TextView
+        android:id="@+id/isFinishedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/hint2"/>
+
+
+</RelativeLayout>  
