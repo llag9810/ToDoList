@@ -1,5 +1,6 @@
 package com.zhu.todolist;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+
+import butterknife.Bind;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -35,12 +38,6 @@ public class DetailActivity extends AppCompatActivity {
         detailDeadline = (TextView)findViewById(R.id.detail_deadline);
         detailPriority = (TextView)findViewById(R.id.detail_priority);
         detailIsFinished = (TextView)findViewById(R.id.detail_isFinished);
-        detailTitle.setKeyListener(null);
-        detailContent.setKeyListener(null);
-        detailCreateDate.setKeyListener(null);
-        detailDeadline.setKeyListener(null);
-        detailPriority.setKeyListener(null);
-        detailIsFinished.setKeyListener(null);
 
         detailTitle.setText(detail[1]);
         detailContent.setText(detail[2]);

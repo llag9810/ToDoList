@@ -11,6 +11,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -33,6 +35,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+import butterknife.Bind;
+
 import static com.zhu.todolist.DbHelper.getInstance;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase db = null;
     private SimpleCursorAdapter adapter = null;
     Cursor cursor = null;
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        viewPager = (ViewPager)findViewById(R.id.pager);
+        TabLayout layout = (TabLayout)findViewById(R.id.tabLayout);
+        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        layout.setupWithViewPager(viewPager);
+        layout.getTabAt(0).setText("全部");
+        layout.getTabAt(1).setText("已完成");
+        layout.getTabAt(2).setText("未完成");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        db = getInstance(this);
+/*        db = getInstance(this);
         cursor = db.rawQuery("SELECT * from eventData", null);
 
         listView1 = (ListView)findViewById(R.id.listView1);
@@ -100,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                intent.putExtra("detail", detail);
                 startActivity(intent);
             }
-        });
+        });*/
 
 /*        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -109,34 +122,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-    }
-
-    class RefreshListTask extends AsyncTask<Void, Void, Cursor> {
-        @Override
-        protected Cursor doInBackground(Void... params) {
-            return db.rawQuery("SELECT * from eventData", null);
-        }
-
-        @Override
-        protected void onPostExecute(Cursor c) {
-            super.onPostExecute(c);
-            adapter.changeCursor(c);
-            cursor.close();
-            cursor = c;
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        new RefreshListTask().execute();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        cursor.close();
-        db.close();
     }
 
     @Override
