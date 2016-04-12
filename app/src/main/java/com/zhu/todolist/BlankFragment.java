@@ -1,6 +1,7 @@
 package com.zhu.todolist;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -62,6 +63,23 @@ public class BlankFragment extends ListFragment {
         setListAdapter(adapter);
     }
 
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Intent intent = new Intent(getActivity(),DetailActivity.class);
+        c.moveToPosition(position);
+        String[] detail = {
+                c.getString(0),
+                c.getString(1),
+                c.getString(2),
+                c.getString(3),
+                c.getString(4),
+                c.getString(5),
+                c.getString(6)};
+        intent.putExtra("detail", detail);
+        startActivity(intent);
+    }
+
     class RefreshListTask extends AsyncTask<Void, Void, Cursor> {
         @Override
         protected Cursor doInBackground(Void... params) {
@@ -71,7 +89,6 @@ public class BlankFragment extends ListFragment {
                 case 1: return db.rawQuery("SELECT * from eventData WHERE isFinished=0", null);
                 case 2: return db.rawQuery("SELECT * from eventData WHERE isFinished=1", null);
                 default: return null;
-
             }
         }
 
